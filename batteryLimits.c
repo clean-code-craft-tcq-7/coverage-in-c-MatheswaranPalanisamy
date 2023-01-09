@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 #include "typewise-alert.h"
-#include "batteryClassifier.h"
+#include "batteryLimits.h"
 
 temperatureLimits BatteryTemperatureLimits[MAX_COOLING_TYPES] = 
 {

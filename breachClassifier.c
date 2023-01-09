@@ -1,5 +1,5 @@
 #include "typewise-alert.h"
-#include "batteryClassifier.h"
+#include "batteryLimits.h"
 #include "limitChecker.h"
 #include "breachClassifier.h"
 
