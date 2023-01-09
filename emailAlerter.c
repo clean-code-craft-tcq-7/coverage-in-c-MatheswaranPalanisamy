@@ -24,11 +24,11 @@ static const char* getAlertMessage(BreachType breachType)
 }
 
 void sendToEmail(BreachType breachType) {
-  char *alertMsg = getAlertMessage(breachType);
+  const char *alertMsg = getAlertMessage(breachType);
 
   if(alertMsg != NULL)
   {
     printf("To: %s\n", recepient);
-    printf("%s\n", getAlertMessage(breachType));
+    printf("%s\n", alertMsg);
   }
 }
