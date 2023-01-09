@@ -13,7 +13,7 @@ const char *alertMessage[MAX_BREACH_TYPES] =
 const char* recepient = "a.b@c.com";
 
 
-static char* getAlertMessage(BreachType breachType)
+static const char* getAlertMessage(BreachType breachType)
 {
     if(breachType < MAX_BREACH_TYPES)
     {
