@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <string.h>
 #include "typewise-alert.h"
 #include "emailAlerter.h"
 
@@ -10,7 +10,8 @@ const char *alertMessage[MAX_BREACH_TYPES] =
     "Hi, the temperature is too high"
 };
 
-const char* recepient = "a.b@c.com";
+// If needed, an API can be provided for the user to change the email id in the field
+char recepient[MAX_EMAIL_ID_STR_LEN] = "a.b@c.com";
 
 
 static const char* getAlertMessage(BreachType breachType)
@@ -23,12 +24,19 @@ static const char* getAlertMessage(BreachType breachType)
     return NULL;
 }
 
-void sendToEmail(BreachType breachType) {
+void sendToEmail(BreachType breachType, void (*alerterFunc)(char *, char *)) {
   const char *alertMsg = getAlertMessage(breachType);
 
   if(alertMsg != NULL)
   {
-    printf("To: %s\n", recepient);
-    printf("%s\n", alertMsg);
+    alerterFunc(recepient, alertMsg);
   }
 }
+
+#if 0
+void setRecepient(char *emailId, int len)
+{
+  memset(recepient, 0, MAX_EMAIL_ID_STR_LEN);
+  strncpy(recepient, emailId, len);
+}
+#endif
