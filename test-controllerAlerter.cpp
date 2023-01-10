@@ -1,6 +1,10 @@
 #include "test/catch.hpp"
 #include "typewise-alert.h"
 #include "controllerAlerter.h"
+#include "alerterMock.h"
+
+extern char *testDest;
+extern char *testMsg;
 
 TEST_CASE("Alert Controller for Normal") {
   testDest = NULL;

@@ -1,7 +1,10 @@
 #include "test/catch.hpp"
 #include "typewise-alert.h"
 #include "emailAlerter.h"
+#include "alerterMock.h"
 
+extern char *testDest;
+extern char *testMsg;
 
 TEST_CASE("Alert email for too high") {
   testDest = NULL;
