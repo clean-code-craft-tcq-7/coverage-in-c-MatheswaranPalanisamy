@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <string.h>
+
 #include "test/catch.hpp"
 #include "typewise-alert.h"
 #include "emailAlerter.h"
