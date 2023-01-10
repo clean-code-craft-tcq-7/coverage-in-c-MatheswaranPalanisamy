@@ -20,5 +20,9 @@ static char *getAlertMessage(BreachType breachType)
 
 void sendToController(BreachType breachType, void (*alerter_func)(char *, char *)) 
 {
-  alerter_func(NULL, getAlertMessage(breachType));
+  char *alertMsg = getAlertMessage(breachType);
+  if(alertMsg != NULL)
+  {
+    alerter_func(NULL, getAlertMessage(breachType));
+  }
 }
