@@ -46,3 +46,8 @@ TEST_CASE("too high in Medium Active cooling") {
   BreachType breachType = classifyTemperatureBreach(MED_ACTIVE_COOLING, 41);
   REQUIRE(breachType == TOO_HIGH);
 }
+
+TEST_CASE("invalid breach type for invalid cooling type") {
+  BreachType breachType = classifyTemperatureBreach(MAX_COOLING_TYPES, 100);
+  REQUIRE(breachType == MAX_BREACH_TYPES);
+}

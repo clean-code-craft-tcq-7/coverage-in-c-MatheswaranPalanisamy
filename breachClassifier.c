@@ -5,8 +5,13 @@
 
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) 
 {
-  // Get the limits for battery classification
-  temperatureLimits tempLimits = getTemperatureLimits(coolingType);
-  // Return the breach type 
-  return inferBreach(temperatureInC, tempLimits.lowerLimit, tempLimits.upperLimit);
+  if(coolingType < MAX_COOLING_TYPES)
+  {
+    // Get the limits for battery classification
+    temperatureLimits tempLimits = getTemperatureLimits(coolingType);
+    // Return the breach type 
+    return inferBreach(temperatureInC, tempLimits.lowerLimit, tempLimits.upperLimit);
+  }
+  
+  return MAX_BREACH_TYPES;
 }
