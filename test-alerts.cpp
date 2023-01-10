@@ -18,7 +18,7 @@ TEST_CASE("Alert Controller for Normal") {
   alertBatteryStatus(TO_CONTROLLER, NORMAL, mockControllerAlerter);
 
   REQUIRE(testDest == NULL);
-  REQUIRE(strcmp(testMsg, "0xfeed : 0x0") == 0);
+  REQUIRE(strcmp(testMsg, "feed : 0") == 0);
 }
 
 TEST_CASE("Alert Controller for too low") {
@@ -28,7 +28,7 @@ TEST_CASE("Alert Controller for too low") {
   alertBatteryStatus(TO_CONTROLLER, TOO_LOW, mockControllerAlerter);
 
   REQUIRE(testDest == NULL);
-  REQUIRE(strcmp(testMsg, "0xfeed : 0x1") == 0);
+  REQUIRE(strcmp(testMsg, "feed : 1") == 0);
 }
 
 TEST_CASE("Alert Controller for too high") {
@@ -38,7 +38,7 @@ TEST_CASE("Alert Controller for too high") {
   alertBatteryStatus(TO_CONTROLLER, TOO_HIGH, mockControllerAlerter);
 
   REQUIRE(testDest == NULL);
-  REQUIRE(strcmp(testMsg, "0xfeed : 0x2") == 0);
+  REQUIRE(strcmp(testMsg, "feed : 2") == 0);
 }
 
 TEST_CASE("Alert email for too high") {
