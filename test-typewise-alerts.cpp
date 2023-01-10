@@ -11,7 +11,7 @@ extern char *testMsg;
 TEST_CASE("Alert Controller for Passive cooling Normal") {
   testDest = NULL;
   testMsg = NULL;
-  BatteryCharacter batteryChar = {"EXIDE", PASSIVE_COOLING};
+  BatteryCharacter batteryChar = {PASSIVE_COOLING, "EXIDE"};
   checkAndAlert(TO_CONTROLLER, batteryChar, 1, mockControllerAlerter);
 
   REQUIRE(testDest == NULL);
@@ -22,7 +22,7 @@ TEST_CASE("Alert Controller for passive cooling too low") {
   testDest = NULL;
   testMsg = NULL;
 
-  BatteryCharacter batteryChar = {"EXIDE", PASSIVE_COOLING};
+  BatteryCharacter batteryChar = {PASSIVE_COOLING, "EXIDE"};
   checkAndAlert(TO_CONTROLLER, batteryChar, -1, mockControllerAlerter);
 
   REQUIRE(testDest == NULL);
@@ -33,7 +33,7 @@ TEST_CASE("Alert Controller for passive cooling too high") {
   testDest = NULL;
   testMsg = NULL;
 
-  BatteryCharacter batteryChar = {"EXIDE", PASSIVE_COOLING};
+  BatteryCharacter batteryChar = {PASSIVE_COOLING, "EXIDE"};
   checkAndAlert(TO_CONTROLLER, batteryChar, 36, mockControllerAlerter);
 
   REQUIRE(testDest == NULL);
@@ -43,7 +43,7 @@ TEST_CASE("Alert Controller for passive cooling too high") {
 TEST_CASE("Alert Controller for Hi Active cooling Normal") {
   testDest = NULL;
   testMsg = NULL;
-  BatteryCharacter batteryChar = {"AMARON", HI_ACTIVE_COOLING};
+  BatteryCharacter batteryChar = {HI_ACTIVE_COOLING, "AMARON"};
   checkAndAlert(TO_CONTROLLER, batteryChar, 41, mockControllerAlerter);
 
   REQUIRE(testDest == NULL);
@@ -54,7 +54,7 @@ TEST_CASE("Alert Controller for Hi Active cooling too low") {
   testDest = NULL;
   testMsg = NULL;
 
-  BatteryCharacter batteryChar = {"AMARON", HI_ACTIVE_COOLING};
+  BatteryCharacter batteryChar = {HI_ACTIVE_COOLING, "AMARON"};
   checkAndAlert(TO_CONTROLLER, batteryChar, -5, mockControllerAlerter);
 
   REQUIRE(testDest == NULL);
@@ -65,7 +65,7 @@ TEST_CASE("Alert Controller for Hi Active cooling too high") {
   testDest = NULL;
   testMsg = NULL;
 
-  BatteryCharacter batteryChar = {"AMARON", HI_ACTIVE_COOLING};
+  BatteryCharacter batteryChar = {HI_ACTIVE_COOLING, "AMARON"};
   checkAndAlert(TO_CONTROLLER, batteryChar, 47, mockControllerAlerter);
 
   REQUIRE(testDest == NULL);
@@ -75,7 +75,7 @@ TEST_CASE("Alert Controller for Hi Active cooling too high") {
 TEST_CASE("Alert Controller for Med Active cooling Normal") {
   testDest = NULL;
   testMsg = NULL;
-  BatteryCharacter batteryChar = {"EVEREADY", MED_ACTIVE_COOLING};
+  BatteryCharacter batteryChar = {MED_ACTIVE_COOLING, "EVEREADY"};
   checkAndAlert(TO_CONTROLLER, batteryChar, 39, mockControllerAlerter);
 
   REQUIRE(testDest == NULL);
@@ -86,7 +86,7 @@ TEST_CASE("Alert Controller for Med Active cooling too low") {
   testDest = NULL;
   testMsg = NULL;
 
-  BatteryCharacter batteryChar = {"EVEREADY", MED_ACTIVE_COOLING};
+  BatteryCharacter batteryChar = {MED_ACTIVE_COOLING, "EVEREADY"};
   checkAndAlert(TO_CONTROLLER, batteryChar, -3, mockControllerAlerter);
 
   REQUIRE(testDest == NULL);
@@ -97,7 +97,7 @@ TEST_CASE("Alert Controller for Med Active cooling too high") {
   testDest = NULL;
   testMsg = NULL;
 
-  BatteryCharacter batteryChar = {"EVEREADY", MED_ACTIVE_COOLING};
+  BatteryCharacter batteryChar = {MED_ACTIVE_COOLING, "EVEREADY"};
   checkAndAlert(TO_CONTROLLER, batteryChar, 41, mockControllerAlerter);
 
   REQUIRE(testDest == NULL);
@@ -108,7 +108,7 @@ TEST_CASE("Alert email for Passive cooling too high") {
   testDest = NULL;
   testMsg = NULL;
 
-  BatteryCharacter batteryChar = {"EXIDE", PASSIVE_COOLING};
+  BatteryCharacter batteryChar = {PASSIVE_COOLING, "EXIDE"};
   checkAndAlert(TO_EMAIL, batteryChar, 36, mockEmailAlerter);
   
   REQUIRE(strcmp(testDest, "a.b@c.com") == 0);
@@ -119,7 +119,7 @@ TEST_CASE("Alert email for Passive cooling too low") {
   testDest = NULL;
   testMsg = NULL;
 
-  BatteryCharacter batteryChar = {"EXIDE", PASSIVE_COOLING};
+  BatteryCharacter batteryChar = {PASSIVE_COOLING, "EXIDE"};
   checkAndAlert(TO_EMAIL, batteryChar, -1, mockEmailAlerter);
 
   REQUIRE(strcmp(testDest, "a.b@c.com") == 0);
@@ -130,7 +130,7 @@ TEST_CASE("No Alert by email for Passive cooling Normal") {
   testDest = NULL;
   testMsg = NULL;
 
-  BatteryCharacter batteryChar = {"EXIDE", PASSIVE_COOLING};
+  BatteryCharacter batteryChar = {PASSIVE_COOLING, "EXIDE"};
   checkAndAlert(TO_EMAIL, batteryChar, 35, mockEmailAlerter);
 
   REQUIRE(testDest == NULL);
@@ -141,7 +141,7 @@ TEST_CASE("Alert email for Hi Active cooling too high") {
   testDest = NULL;
   testMsg = NULL;
 
-  BatteryCharacter batteryChar = {"EXIDE", HI_ACTIVE_COOLING};
+  BatteryCharacter batteryChar = {HI_ACTIVE_COOLING, "EXIDE"};
   checkAndAlert(TO_EMAIL, batteryChar, 46, mockEmailAlerter);
   
   REQUIRE(strcmp(testDest, "a.b@c.com") == 0);
@@ -152,7 +152,7 @@ TEST_CASE("Alert email for Hi Active cooling too low") {
   testDest = NULL;
   testMsg = NULL;
 
-  BatteryCharacter batteryChar = {"EXIDE", HI_ACTIVE_COOLING};
+  BatteryCharacter batteryChar = {HI_ACTIVE_COOLING, "EXIDE"};
   checkAndAlert(TO_EMAIL, batteryChar, -1, mockEmailAlerter);
 
   REQUIRE(strcmp(testDest, "a.b@c.com") == 0);
@@ -163,7 +163,7 @@ TEST_CASE("No Alert by email for Hi Active cooling Normal") {
   testDest = NULL;
   testMsg = NULL;
 
-  BatteryCharacter batteryChar = {"EXIDE", HI_ACTIVE_COOLING};
+  BatteryCharacter batteryChar = {HI_ACTIVE_COOLING, "EXIDE"};
   checkAndAlert(TO_EMAIL, batteryChar, 44, mockEmailAlerter);
 
   REQUIRE(testDest == NULL);
@@ -174,7 +174,7 @@ TEST_CASE("Alert email for Med Active cooling too high") {
   testDest = NULL;
   testMsg = NULL;
 
-  BatteryCharacter batteryChar = {"EXIDE", MED_ACTIVE_COOLING};
+  BatteryCharacter batteryChar = {MED_ACTIVE_COOLING, "EXIDE"};
   checkAndAlert(TO_EMAIL, batteryChar, 42, mockEmailAlerter);
   
   REQUIRE(strcmp(testDest, "a.b@c.com") == 0);
@@ -185,7 +185,7 @@ TEST_CASE("Alert email for Med Active cooling too low") {
   testDest = NULL;
   testMsg = NULL;
 
-  BatteryCharacter batteryChar = {"EXIDE", MED_ACTIVE_COOLING};
+  BatteryCharacter batteryChar = {MED_ACTIVE_COOLING, "EXIDE"};
   checkAndAlert(TO_EMAIL, batteryChar, -1, mockEmailAlerter);
 
   REQUIRE(strcmp(testDest, "a.b@c.com") == 0);
@@ -196,7 +196,7 @@ TEST_CASE("No Alert by email for Med Active cooling Normal") {
   testDest = NULL;
   testMsg = NULL;
 
-  BatteryCharacter batteryChar = {"EXIDE", MED_ACTIVE_COOLING};
+  BatteryCharacter batteryChar = {MED_ACTIVE_COOLING, "EXIDE"};
   checkAndAlert(TO_EMAIL, batteryChar, 39, mockEmailAlerter);
 
   REQUIRE(testDest == NULL);
@@ -207,7 +207,7 @@ TEST_CASE("No Alert for invalid alert target while breach is too low") {
   testDest = NULL;
   testMsg = NULL;
 
-  BatteryCharacter batteryChar = {"EXIDE", PASSIVE_COOLING};
+  BatteryCharacter batteryChar = {PASSIVE_COOLING, "EXIDE"};
   checkAndAlert(MAX_ALERTER_TARGETS, batteryChar, -5, mockEmailAlerter);
 
   REQUIRE(testDest == NULL);
@@ -218,7 +218,7 @@ TEST_CASE("No Alert for invalid alert target while breach is too high") {
   testDest = NULL;
   testMsg = NULL;
 
-  BatteryCharacter batteryChar = {"EXIDE", PASSIVE_COOLING};
+  BatteryCharacter batteryChar = {PASSIVE_COOLING, "EXIDE"};
   checkAndAlert(MAX_ALERTER_TARGETS, batteryChar, 45, mockEmailAlerter);
 
   REQUIRE(testDest == NULL);
@@ -229,7 +229,7 @@ TEST_CASE("No Alert for invalid cooling type while breach is too low") {
   testDest = NULL;
   testMsg = NULL;
 
-  BatteryCharacter batteryChar = {"EXIDE", MAX_COOLING_TYPES};
+  BatteryCharacter batteryChar = {MAX_COOLING_TYPES, "EXIDE"};
   checkAndAlert(TO_EMAIL, batteryChar, -5, mockEmailAlerter);
 
   REQUIRE(testDest == NULL);
@@ -240,7 +240,7 @@ TEST_CASE("No Alert for invalid cooling type while breach is too high") {
   testDest = NULL;
   testMsg = NULL;
 
-  BatteryCharacter batteryChar = {"EXIDE", MAX_COOLING_TYPES};
+  BatteryCharacter batteryChar = {MAX_COOLING_TYPES, "EXIDE"};
   checkAndAlert(TO_EMAIL, batteryChar, 45, mockEmailAlerter);
 
   REQUIRE(testDest == NULL);
