@@ -1,3 +1,3 @@
-typedef void (*alerterFunc) (BreachType);
+typedef void (*alerterFunc) (BreachType, void (*alerter_func)(char *, char *));
 
-void alertBatterStatus(AlertTarget alertTarget, BreachType breachType);
+void alertBatteryStatus(AlertTarget alertTarget, BreachType breachType, void (*alerter_func)(char *, char *));

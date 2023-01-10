@@ -10,10 +10,10 @@ const alerterFunc alerterFunctions[MAX_ALERTER_TARGETS] =
     sendToEmail
 };
 
-void alertBatterStatus(AlertTarget alertTarget, BreachType breachType)
+void alertBatteryStatus(AlertTarget alertTarget, BreachType breachType, void (*alerter_func)(char *, char *))
 {
   if(alertTarget < MAX_ALERTER_TARGETS)
   {
-    alerterFunctions[alertTarget](breachType);
+    alerterFunctions[alertTarget](breachType, alerter_func);
   }
 }
