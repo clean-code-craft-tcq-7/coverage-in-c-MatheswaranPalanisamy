@@ -6,7 +6,7 @@
 const unsigned short header = 0xfeed;
 char alertMsg[MAX_CTRL_ALERT_MSG_LEN];
 
-static void getAlertMessage(BreachType breachType, char *msgBuff)
+static char *getAlertMessage(BreachType breachType)
 {
   if(breachType < MAX_BREACH_TYPES)
   {
@@ -20,6 +20,5 @@ static void getAlertMessage(BreachType breachType, char *msgBuff)
 
 void sendToController(BreachType breachType, void (*alerter_func)(char *, char *)) 
 {
-  getAlertMessage(breachType, alertMsg);
-  alerter_func(NULL, alertMsg);
+  alerter_func(NULL, getAlertMessage(breachType));
 }

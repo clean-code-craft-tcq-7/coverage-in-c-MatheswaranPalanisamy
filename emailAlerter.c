@@ -29,7 +29,7 @@ void sendToEmail(BreachType breachType, void (*alerterFunc)(char *, char *)) {
 
   if(alertMsg != NULL)
   {
-    alerterFunc(recepient, alertMsg);
+    alerterFunc(recepient, (char *)alertMsg);
   }
 }
 

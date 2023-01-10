@@ -1,5 +1,9 @@
+#include <stdio.h>
+#include <string.h>
+
 #include "test/catch.hpp"
 #include "typewise-alert.h"
+#include "alerter.h"
 #include "alerterMock.h"
 
 extern char *testDest;
