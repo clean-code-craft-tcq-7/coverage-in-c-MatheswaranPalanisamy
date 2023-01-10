@@ -9,7 +9,7 @@
 extern char *testDest;
 extern char *testMsg;
 
-TEST_CASE("Alert email for too high") {
+TEST_CASE("email Alert for too high") {
   testDest = NULL;
   testMsg = NULL;
 
@@ -19,7 +19,7 @@ TEST_CASE("Alert email for too high") {
   REQUIRE(strcmp(testMsg, "Hi, the temperature is too high") == 0);
 }
 
-TEST_CASE("Alert email for too low") {
+TEST_CASE("email Alert for too low") {
   testDest = NULL;
   testMsg = NULL;
 
@@ -29,7 +29,7 @@ TEST_CASE("Alert email for too low") {
   REQUIRE(strcmp(testMsg, "Hi, the temperature is too low") == 0);
 }
 
-TEST_CASE("No Alert by email for Normal") {
+TEST_CASE("No email Alert for Normal") {
   testDest = NULL;
   testMsg = NULL;
 
@@ -39,7 +39,7 @@ TEST_CASE("No Alert by email for Normal") {
   REQUIRE(testMsg == NULL);
 }
 
-TEST_CASE("No Alert by email for invalid breach type") {
+TEST_CASE("No email Alert for invalid breach type") {
   testDest = NULL;
   testMsg = NULL;
 

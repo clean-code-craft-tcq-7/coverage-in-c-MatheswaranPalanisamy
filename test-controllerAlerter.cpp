@@ -9,7 +9,7 @@
 extern char *testDest;
 extern char *testMsg;
 
-TEST_CASE("Alert Controller for Normal") {
+TEST_CASE("Controller Alert for Normal") {
   testDest = NULL;
   testMsg = NULL;
 
@@ -19,7 +19,7 @@ TEST_CASE("Alert Controller for Normal") {
   REQUIRE(strcmp(testMsg, "feed : 0") == 0);
 }
 
-TEST_CASE("Alert Controller for too low") {
+TEST_CASE("Controller Alert for too low") {
   testDest = NULL;
   testMsg = NULL;
 
@@ -29,7 +29,7 @@ TEST_CASE("Alert Controller for too low") {
   REQUIRE(strcmp(testMsg, "feed : 1") == 0);
 }
 
-TEST_CASE("Alert Controller for too high") {
+TEST_CASE("Controller Alert for too high") {
   testDest = NULL;
   testMsg = NULL;
 
@@ -39,7 +39,7 @@ TEST_CASE("Alert Controller for too high") {
   REQUIRE(strcmp(testMsg, "feed : 2") == 0);
 }
 
-TEST_CASE("No Alert Controller for invalid breach type") {
+TEST_CASE("No Controller Alert for invalid breach type") {
   testDest = NULL;
   testMsg = NULL;
 
