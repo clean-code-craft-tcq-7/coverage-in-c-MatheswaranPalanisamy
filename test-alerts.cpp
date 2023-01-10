@@ -47,7 +47,7 @@ TEST_CASE("Alert email for too high") {
 
   alertBatteryStatus(TO_EMAIL, TOO_HIGH, mockEmailAlerter);
 
-  REQUIRE(strcmp(testDest, "a.b@c.com"));
+  REQUIRE(strcmp(testDest, "a.b@c.com") == 0);
   REQUIRE(strcmp(testMsg, "Hi, the temperature is too high") == 0);
 }
 
@@ -57,7 +57,7 @@ TEST_CASE("Alert email for too low") {
 
   alertBatteryStatus(TO_EMAIL, TOO_LOW, mockEmailAlerter);
 
-  REQUIRE(strcmp(testDest, "a.b@c.com"));
+  REQUIRE(strcmp(testDest, "a.b@c.com") == 0);
   REQUIRE(strcmp(testMsg, "Hi, the temperature is too low") == 0);
 }
 
